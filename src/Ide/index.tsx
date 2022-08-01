@@ -18,7 +18,8 @@ const Ide = (props: IIdeProps) => {
 
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState<allowedLanguagesType>(
-    props.language ?? ("javascript" as unknown as allowedLanguagesType)
+    props.options.default_lang ??
+      ("javascript" as unknown as allowedLanguagesType)
   );
   const [loading, setLoading] = useState(false);
   const [output, setOutput] = useState("");
@@ -60,7 +61,7 @@ const Ide = (props: IIdeProps) => {
   const handleEditorChange = (value: string | undefined, event: any) => {
     setCode(value ?? "");
     if (props.onChange) {
-      props.onChange(value, event);
+      props.onChange(value, language);
     }
   };
 

@@ -95,8 +95,13 @@ const Ide = (props: IIdeProps) => {
     <div style={containerSizing}>
       <div style={flexboxContainerHorizontal}>
         <div style={verticalContainerStyling}>
-          <LanguageSelect onChange={handleLanguageChange} />
+          <LanguageSelect language={language} onChange={handleLanguageChange} />
           <Editor
+            value={
+              props.options.templates.find(
+                (template) => template.lang === language
+              )?.code
+            }
             onChange={handleEditorChange}
             language={language}
             height={containerSizing.height}

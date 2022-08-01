@@ -23,11 +23,22 @@ export interface IRunner {
 }
 
 // Props
+
+export interface IIdeOptions {
+  title?: string;
+  description?: string;
+  default_lang: allowedLanguagesType;
+  templates: Array<{
+    lang: allowedLanguagesType;
+    code: string;
+  }>;
+}
 export interface IIdeProps {
   height?: string;
   width?: string;
   value?: string;
   language?: allowedLanguagesType;
+  options: IIdeOptions;
   run: (code: string, language: allowedLanguagesType) => Promise<IRunOutput>; // Should catch errors and sucess. Shold be a js o sent in the cb that will have the op or the e as the key
   onChange?: Function;
   onRun?: Function;

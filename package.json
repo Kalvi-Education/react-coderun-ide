@@ -9,8 +9,7 @@
     "deploy": "yarn build && npm version patch && npm publish"
   },
   "dependencies": {
-    "@monaco-editor/react": "^4.4.5",
-    "axios": "^0.27.2"
+    "@monaco-editor/react": "^4.4.5"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

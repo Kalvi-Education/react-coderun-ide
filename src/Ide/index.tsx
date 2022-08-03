@@ -67,6 +67,9 @@ const Ide = (props: IIdeProps) => {
 
   const handleLanguageChange = (value: allowedLanguagesType) => {
     setLanguage(value);
+    if (props.onChange) {
+      props.onChange(value, language);
+    }
   };
 
   const runCode = async () => {
